@@ -2,10 +2,10 @@ FROM    rubyisbeautiful/centos6-ruby-2.2.3:latest
 
 MAINTAINER <Bryan Taylor> bcptaylor@gmail.com
 
-COPY . /usr/src/app
+RUN git clone https://github.com/rubyisbeautiful/math-probs.git /usr/src/app
 WORKDIR /usr/src/app
 RUN bundle install
 
-EXPOSE 4567
+EXPOSE 80
 
-CMD rackup -p 4567
+CMD bundle exec rackup -o 0.0.0.0 -p 80
