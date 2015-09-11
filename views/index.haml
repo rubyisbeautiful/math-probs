@@ -1,0 +1,7 @@
+%div
+  %table{ style: 'border=1'}
+    - math_problems.each_with_index do |row, index|
+      %tr
+        %td= "#{index+1}."
+        - row.each do |prob|
+          %td= "#{prob[0]} #{prob[2]} #{prob[1]}"
