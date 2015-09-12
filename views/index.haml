@@ -1,7 +1,16 @@
 %div
-  %table{ style: 'border=1'}
+  %table.page-wide
     - math_problems.each_with_index do |row, index|
-      %tr
+      %tr.equation-row
         %td= "#{index+1}."
         - row.each do |prob|
-          %td= "#{prob[0]} #{prob[2]} #{prob[1]}"
+          %td
+            %table.equation.right
+              %tr.inside-equation
+                %td &nbsp;
+                %td= prob[0]
+              %tr.inside-equation
+                %td= prob[2]
+                %td= prob[1]
+              %tr.inside-equation
+                %td.top_line{ colspan: 2} &nbsp;
